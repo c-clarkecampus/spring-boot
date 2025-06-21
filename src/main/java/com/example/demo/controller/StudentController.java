@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.modal.Student;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class StudentController {
 
     @DeleteMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable int id) {
-        studentList = studentList.stream().filter(stu -> stu.getId() == id).toList();
+        studentList = studentList.stream().filter(stu -> stu.getId() != id).toList();
         return "Student deleted";
     }
 
