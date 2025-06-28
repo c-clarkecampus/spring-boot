@@ -13,20 +13,21 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-//    @Autowired
-    private final StudentService stuService;
+    @Autowired
+    private StudentService stuService;
+    @Autowired
+    private GreetingController greetingService;
 
-    public StudentController (StudentService studentService) {
-        this.stuService = studentService;
-    }
+//    public StudentController (StudentService studentService) {
+//        this.stuService = studentService;
+//    }
 
-    //CRUD implement
-    // GET , POST, PUT, DELETE
-
-    @GetMapping("/getList")
-    public List<Student> getStudentList() {
-        return stuService.getStudentList();
-    }
+//CRUD implement
+// GET , POST, PUT, DELETE
+@GetMapping("/getList")
+public List<Student> getStudentList() {
+    return stuService.getStudentList();
+}
 
     @PostMapping("/addStudent")
     public String saveStudent(@RequestBody Student student) {
@@ -43,7 +44,7 @@ public class StudentController {
     @DeleteMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable int id) {
         return stuService.deleteStudent(id);
-    }
+}
 
 
 
