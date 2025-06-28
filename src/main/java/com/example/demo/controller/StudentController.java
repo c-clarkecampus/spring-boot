@@ -3,21 +3,23 @@ package com.example.demo.controller;
 import com.example.demo.modal.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("student")
 public class StudentController {
 
-//    @Autowired
-    private final StudentService stuService;
 
-    public StudentController (StudentService studentService) {
-        this.stuService = studentService;
+
+    private StudentService stuService;
+
+    //SETTER DEPENDENCY INJECTION
+
+    @Autowired
+    public void setStudentService(StudentService studentService){
+        this.stuService=studentService;
     }
 
     //CRUD implement
@@ -44,8 +46,4 @@ public class StudentController {
     public String deleteStudent(@PathVariable int id) {
         return stuService.deleteStudent(id);
     }
-
-
-
-
 }

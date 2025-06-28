@@ -41,7 +41,4 @@ public class StudentService {
         studentList = studentList.stream().filter(stu -> stu.getId() != id).toList();
         return "Student deleted";
     }
-
-
-
 }
