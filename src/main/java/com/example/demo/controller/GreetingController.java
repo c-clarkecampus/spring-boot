@@ -14,8 +14,6 @@ public class GreetingController {
     @Value("${server.port}")
     private int port;
 
-    @Value("${dbaddress}")
-    private String dbAddress;
 
     private final StudentService stuService;
     private final GreetingService greetingService;
@@ -31,7 +29,6 @@ public class GreetingController {
 //        AppConfig appConfig = new AppConfig();
 //        System.out.println(appConfig.getPort());
         System.out.println(port);
-        System.out.println(dbAddress);
 //        System.out.println(this.appName);
         return greetingService.greet();
     }
