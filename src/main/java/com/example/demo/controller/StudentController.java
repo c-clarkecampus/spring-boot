@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.modal.Student;
+import com.example.demo.service.GreetingService;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +14,15 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-//    @Autowired
+    @Autowired
     private final StudentService stuService;
+
+    @Autowired
+    private GreetingService greetingService ;
 
     public StudentController (StudentService studentService) {
         this.stuService = studentService;
+        this.greetingService = greetingService ;
     }
 
     //CRUD implement
@@ -41,7 +46,7 @@ public class StudentController {
     }
 
     @DeleteMapping("/deleteStudent/{id}")
-    public String deleteStudent(@PathVariable int id) {
+    public String deleteStudent(@PathVariable int id)  {
         return stuService.deleteStudent(id);
     }
 
