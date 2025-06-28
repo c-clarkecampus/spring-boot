@@ -13,12 +13,14 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-//    @Autowired
-    private final StudentService stuService;
+   @Autowired
+    StudentService stuService;
 
-    public StudentController (StudentService studentService) {
-        this.stuService = studentService;
-    }
+    // public StudentController (StudentService studentService ) {
+    //     this.stuService = studentService;
+    // }
+
+    
 
     //CRUD implement
     // GET , POST, PUT, DELETE

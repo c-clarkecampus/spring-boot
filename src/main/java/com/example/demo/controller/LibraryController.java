@@ -1,12 +1,21 @@
 package com.example.demo.controller;
 
 import com.example.demo.modal.Book;
+import com.example.demo.service.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("library")
 public class LibraryController {
+
+    private GreetingService greetingService;
+
+    @Autowired
+    public void setGreetingService(GreetingService greetingService){
+        this.greetingService = greetingService;
+    }
 
     @GetMapping("/getBookName")
     public String getBookName() {
