@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
 
     @Autowired
-    private GreetingService greetingService;
-//    private final String appName;
+    private final GreetingService greetingService;
+    private final String appName;
 
     //Constructor dependency injection
-//    public GreetingController(GreetingService greetingService, String appName) {
-//        this.greetingService = greetingService;
-//        this.appName = appName;
-//    }
+    public GreetingController(GreetingService greetingService, String appName) {
+        this.greetingService = greetingService;
+        this.appName = appName;
+    }
 
     @GetMapping("/greet")
     public String greet() {
