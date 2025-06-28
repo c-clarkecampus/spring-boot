@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.GreetingService;
+import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,15 +9,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
-    @Autowired
-    private GreetingService greetingService;
+    private final StudentService studentService;
+    private final GreetingService greetingService;
+
+   // @Autowired
+    public GreetingController(GreetingService greetingService, StudentService studentService){
+        this.greetingService = greetingService;
+        this.studentService = studentService;
+    }
+
 //    private final String appName;
 
     //Constructor dependency injection
-//    public GreetingController(GreetingService greetingService, String appName) {
+//   public GreetingController(StudentService studentService, String appName, StudentService studentService1) {
+//       this.studentService = studentService1;
+//       this.studentService =studentService;
 //        this.greetingService = greetingService;
-//        this.appName = appName;
-//    }
+//   }
 
     @GetMapping("/greet")
     public String greet() {

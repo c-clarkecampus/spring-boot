@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-//    @Autowired
+    @Autowired
     private final StudentService stuService;
 
     public StudentController (StudentService studentService) {
