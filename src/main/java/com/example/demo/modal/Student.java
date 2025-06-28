@@ -1,7 +1,13 @@
 package com.example.demo.modal;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "student")
 public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
     private Integer age;
     private Integer id;

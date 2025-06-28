@@ -1,14 +1,16 @@
 package com.example.demo.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
+@ConfigurationProperties(prefix = "server")
+
 public class AppConfig {
 
-    @Bean
-    public String appName(){
-        System.out.println("Inside app config");
-        return "Hotel Booking System";
-    }
+    private int port;
+    private String dbaddress;
+
 }
