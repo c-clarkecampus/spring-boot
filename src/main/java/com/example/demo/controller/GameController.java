@@ -32,4 +32,12 @@ public class GameController {
     }
 
 
+    @GetMapping("numbers")
+    public void numbers(
+            @RequestParam (value = "first") Integer num1 ,
+            @RequestParam (value = "second") Integer num2 ){
+service.last(num1, num2) ;
+    }
+
+
 }

@@ -18,4 +18,18 @@ public class GamService {
        return area;
 
     }
+
+    public void last(Integer num1, Integer num2) {
+
+       Integer ekthu = num1+num2;
+       Integer bedim= num1/num2;
+       Integer adu = num1-num2;
+       Integer guna = num1*num2;
+
+        System.out.println(ekthu);
+        System.out.println(bedim);
+        System.out.println(adu);
+        System.out.println(guna);
+
+    }
 }
