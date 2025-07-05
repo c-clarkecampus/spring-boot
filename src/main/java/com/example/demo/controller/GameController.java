@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.modal.Student2;
 import com.example.demo.service.GamService;
+import com.example.demo.service.Student2Service;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -8,8 +10,10 @@ import org.springframework.web.bind.annotation.*;
 public class GameController {
 
     private GamService service;
-    public GameController(GamService service){
+    private Student2Service s2;
+    public GameController(GamService service, Student2Service s2){
         this.service=service;
+        this.s2=s2;
     }
 
     @GetMapping("/number/{number}")
@@ -20,6 +24,11 @@ public class GameController {
     @GetMapping("/area")
     public int getArea(@RequestParam (value = "width")int width , @RequestParam (value="length")int length ){
        return service.area(width,length);
+    }
+
+    @PostMapping()
+    public Student2 create(@RequestBody Student2 student2){
+        return s2.create(student2);
     }
 
 
