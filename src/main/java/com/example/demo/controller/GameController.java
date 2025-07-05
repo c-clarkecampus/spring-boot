@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.GamService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
@@ -14,8 +11,16 @@ public class GameController {
     public GameController(GamService service){
         this.service=service;
     }
+
     @GetMapping("/number/{number}")
     public void getNumber(@PathVariable int number){
         service.print(number);
     }
+
+    @GetMapping("/area")
+    public int getArea(@RequestParam (value = "width")int width , @RequestParam (value="length")int length ){
+       return service.area(width,length);
+    }
+
+
 }

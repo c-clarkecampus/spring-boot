@@ -11,4 +11,11 @@ public class GamService {
 
    }
 
-}}
+}
+
+    public int area(int width, int length) {
+       int area = width * length;
+       return area;
+
+    }
+}
