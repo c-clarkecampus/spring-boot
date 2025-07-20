@@ -28,7 +28,7 @@ public class StudentController {
         return stuService.getStudentList();
     }
 
-    @PostMapping("/addStudent")
+    @PostMapping("/addStudent") // /student/addStudent
     public String saveStudent(@RequestBody Student student) {
         return stuService.saveStudent(student);
     }
@@ -44,6 +44,14 @@ public class StudentController {
     public String deleteStudent(@PathVariable int id) {
         return stuService.deleteStudent(id);
     }
+
+    //Search by name
+    @GetMapping("/findByName")
+    public Student findStudentByName(@RequestParam(value = "name") String studentName) {
+        return stuService.findStudentByHisName(studentName);
+    }
+
+
 
 
 

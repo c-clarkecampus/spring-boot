@@ -1,7 +1,12 @@
 package com.example.demo.modal;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
 
+    @Id
     private String bookName;
     private String author;
 
