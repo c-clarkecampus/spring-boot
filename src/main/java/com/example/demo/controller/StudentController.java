@@ -48,6 +48,13 @@ public class StudentController {
         return stuService.deleteStudent(id);
     }
 
+    @GetMapping("/findByName")
+    public Student findByName(@RequestParam String name){
+        return stuService.findByName(name);
+    }
+
+
+
 
 
 

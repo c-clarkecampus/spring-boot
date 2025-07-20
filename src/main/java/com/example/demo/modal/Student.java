@@ -1,10 +1,18 @@
 package com.example.demo.modal;
 
+import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@Entity
+@Table(name = "student")
+
 public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String name;
     private Integer age;
-    private Integer id;
 
     public String getName() {
         return name;
