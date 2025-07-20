@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.modal.Book;
+import com.example.demo.service.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -8,8 +10,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("library")
 public class LibraryController {
 
+    private GreetingService greetingService;
+
+    //Setter dependency injection
+    @Autowired
+    public void setGreetingService(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
     @GetMapping("/getBookName")
     public String getBookName() {
+        System.out.println(greetingService.greet());
         return "Hathpana";
     }
 

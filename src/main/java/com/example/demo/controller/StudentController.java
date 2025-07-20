@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.modal.Student;
+import com.example.demo.service.GreetingService;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,22 +14,21 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-//    @Autowired
-    private final StudentService stuService;
-
-    public StudentController (StudentService studentService) {
-        this.stuService = studentService;
-    }
+    @Autowired
+    private StudentService stuService;
+    @Autowired
+    private GreetingService greetingService;
 
     //CRUD implement
     // GET , POST, PUT, DELETE
 
     @GetMapping("/getList")
     public List<Student> getStudentList() {
+        System.out.println(greetingService.greet());
         return stuService.getStudentList();
     }
 
-    @PostMapping("/addStudent")
+    @PostMapping("/addStudent") // /student/addStudent
     public String saveStudent(@RequestBody Student student) {
         return stuService.saveStudent(student);
     }
@@ -44,6 +44,14 @@ public class StudentController {
     public String deleteStudent(@PathVariable int id) {
         return stuService.deleteStudent(id);
     }
+
+    //Search by name
+    @GetMapping("/findByName")
+    public Student findStudentByName(@RequestParam(value = "name") String studentName) {
+        return stuService.findStudentByHisName(studentName);
+    }
+
+
 
 
 

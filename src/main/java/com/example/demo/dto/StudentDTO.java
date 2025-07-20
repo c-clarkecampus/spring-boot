@@ -1,20 +1,10 @@
-package com.example.demo.modal;
+package com.example.demo.dto;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "student")
-public class Student {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+public class StudentDTO {
     private String name;
     private Integer age;
-    private String address;
     private Integer grade;
-
-
 
     public String getName() {
         return name;
@@ -30,14 +20,6 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getGrade() {
